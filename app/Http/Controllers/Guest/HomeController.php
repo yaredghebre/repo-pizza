@@ -9,8 +9,8 @@ use Illuminate\Http\Request;
 class HomeController extends Controller
 {
         public function index() {
-
-        return view('home');
+            $pizzas = Pizza::all();
+            return view('home', compact('pizzas'));
     }
 
 }
