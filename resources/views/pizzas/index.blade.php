@@ -4,6 +4,9 @@
 <div class="container">
 
     <table class="table">
+      <div class="my-2 text-end">
+        <a href="{{ route('pizzas.create') }}">Crea la tua PIZZA</a>
+      </div>
         <thead>
           <tr>
             <th scope="col">id</th>
@@ -31,6 +34,13 @@
                     <a class="btn btn-warning" href="{{ route('pizzas.edit', $pizza->id) }}">
                       <i class="fa-regular fa-pen-to-square"></i>
                   </a>
+                  <form class="d-inline-block" action="{{ route('pizzas.destroy', $pizza->id) }}" method="POST">
+                    @method('DELETE')
+                    @csrf
+                    <button type="submit" class="btn btn-danger" id="delete_btn">
+                        <i class="fa-solid fa-trash"></i>
+                    </button>
+                </form>
                 </td>
               </tr>
             @endforeach
