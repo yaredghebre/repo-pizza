@@ -23,9 +23,9 @@
                 <td>{{ $pizza->ingredients }}</td>
                 <td>{{ $pizza->price }}</td>
                 <td>{{ $pizza->is_available === 0 ? 'No' : 'Si' }}</td>
-                <td>{{ $pizza->is_vegan  === 0 ? 'No' : 'Si' }}</td>
+                <td>{{ $pizza->is_vegan === 0 ? 'No' : 'Si' }}</td>
                 <td>
-                    <a class="btn btn-success" href="">
+                    <a class="btn btn-success" href="{{ route('pizzas.show', $pizza->id) }}">
                         <i class="fa-solid fa-eye"></i>
                     </a>
                 </td>
