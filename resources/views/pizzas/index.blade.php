@@ -21,7 +21,7 @@
                 <td>{{ $pizza->id }}</td>
                 <th>{{ $pizza->flavour }}</th>
                 <td>{{ $pizza->ingredients }}</td>
-                <td>{{ $pizza->price }}</td>
+                <td>€ {{ $pizza->price }}</td>
                 <td>{{ $pizza->is_available === 0 ? 'No' : 'Si' }}</td>
                 <td>{{ $pizza->is_vegan === 0 ? 'No' : 'Si' }}</td>
                 <td>
