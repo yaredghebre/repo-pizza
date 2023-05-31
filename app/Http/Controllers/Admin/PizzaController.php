@@ -26,7 +26,7 @@ class PizzaController extends Controller
      */
     public function create()
     {
-        //
+        
     }
 
     /**
@@ -37,7 +37,7 @@ class PizzaController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        
     }
 
     /**
@@ -48,7 +48,8 @@ class PizzaController extends Controller
      */
     public function show($id)
     {
-        //
+        $pizza = Pizza::findOrFail($id);
+        return view('pizzas.show', compact('pizza'));
     }
 
     /**
