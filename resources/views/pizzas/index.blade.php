@@ -28,6 +28,9 @@
                     <a class="btn btn-success" href="{{ route('pizzas.show', $pizza->id) }}">
                         <i class="fa-solid fa-eye"></i>
                     </a>
+                    <a class="btn btn-warning" href="{{ route('pizzas.edit', $pizza->id) }}">
+                      <i class="fa-regular fa-pen-to-square"></i>
+                  </a>
                 </td>
               </tr>
             @endforeach
