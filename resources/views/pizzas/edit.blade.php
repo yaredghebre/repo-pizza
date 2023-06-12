@@ -11,10 +11,6 @@
             <label for="flavour" class="form-label">Flavour</label>
             <input type="text" class="form-control" id="flavour" name="flavour" placeholder="Inserisci nome pizza" value="{{ $pizza->flavour }}">
         </div>
-        <div class="mb-3">
-            <label for="ingredients" class="form-label">Ingredients</label>
-            <input class="form-control" id="ingredients" name="ingredients" value="{{ $pizza->ingredients }}">
-        </div>
         
         <div class="mb-3">
             <label for="price" class="form-label">Prezzo</label>

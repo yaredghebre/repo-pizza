@@ -13,12 +13,9 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('pizzas', function (Blueprint $table) {
+        Schema::create('ingredients', function (Blueprint $table) {
             $table->id();
-            $table->string('flavour', 50);
-            $table->decimal('price', 4, 2);
-            $table->boolean('is_available')->default(true);
-            $table->boolean('is_vegan')->default(false);
+            $table->string('name', 150);
             $table->timestamps();
         });
     }
@@ -30,6 +27,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('pizzas');
+        Schema::dropIfExists('ingredients');
     }
 };
