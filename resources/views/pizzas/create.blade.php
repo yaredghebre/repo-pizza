@@ -32,6 +32,18 @@
                 <option value="1">Si</option>
             </select>
         </div>
+
+        <div class="mb-3">
+            <h5>Seleziona gli ingredienti</h5>
+            @foreach ($ingredients as $ingredient)
+                <div class="form-check">
+                    <input class="form-check-input" name="ingredients[]" type="checkbox" value="{{ $ingredient->id }}" id="ingredient-{{ $ingredient->id }}" @checked(in_array($ingredient->id, old('ingredients', [])))>
+                    <label class="form-check-label" for="ingredient-{{ $ingredient->id }}">
+                        {{ $ingredient->name }}
+                    </label>
+                </div>
+            @endforeach
+        </div>
         
         <button type="submit" class="btn btn-primary mt-3">Salva</button>
         <a href="{{route('pizzas.index')}}" class="btn btn-warning mt-3 ms-3">Indietro</a>

@@ -9,7 +9,7 @@ class Ingredient extends Model
 {
     use HasFactory;
 
-    public function pizzas () {
+    public function pizzas() {
         return $this->belongsToMany(Pizza::class);
     }
 }
