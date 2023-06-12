@@ -3,6 +3,8 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\StorePizzaRequest;
+use App\Models\Ingredient;
 use App\Models\Pizza;
 use Illuminate\Http\Request;
 
@@ -26,7 +28,8 @@ class PizzaController extends Controller
      */
     public function create()
     {
-        return view('pizzas.create');
+        $ingredients = Ingredient::all();
+        return view('pizzas.create', compact('ingredients'));
     }
 
     /**
@@ -35,12 +38,16 @@ class PizzaController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(StorePizzaRequest $request)
     {
-        $data = $request->all();
+        $data = $request->validated();
         $pizza = new Pizza();
-        $pizza->fill($data);
-        $pizza->save();
+
+        $pizza = Pizza::create($data);
+
+        if ($request->has('ingredients')) {
+            $pizza->ingredients()->attach($request->ingredients);
+        }
 
         return redirect()->route('pizzas.index');
     }
@@ -54,6 +61,7 @@ class PizzaController extends Controller
     public function show($id)
     {
         $pizza = Pizza::findOrFail($id);
+        dd($pizza->ingredients);
         return view('pizzas.show', compact('pizza'));
     }
 
@@ -66,7 +74,8 @@ class PizzaController extends Controller
     public function edit($id)
     {
         $pizza = Pizza::findOrFail($id);
-        return view('pizzas.edit', compact('pizza'));
+        $ingredients = Ingredient::all();
+        return view('pizzas.edit', compact('pizza', 'ingredients'));
     }
 
     /**
