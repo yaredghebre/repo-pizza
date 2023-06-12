@@ -16,7 +16,6 @@ return new class extends Migration
         Schema::create('pizzas', function (Blueprint $table) {
             $table->id();
             $table->string('flavour', 50);
-            $table->string('ingredients', 50);
             $table->decimal('price', 4, 2);
             $table->boolean('is_available')->default(true);
             $table->boolean('is_vegan')->default(false);
