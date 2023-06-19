@@ -16,3 +16,4 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('pizzas', [PizzaController::class, 'index']);
+
